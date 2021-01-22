@@ -5,6 +5,7 @@ import com.hkarabakla.entities.Category;
 import com.hkarabakla.repositories.CategoryRepo;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.UUID;
 
@@ -23,12 +24,14 @@ public class CategoryService {
         b1.setIsbn(UUID.randomUUID().toString());
         b1.setName("Spring in Action");
 
+
         Category c1 = new Category();
         c1.setName("Computer Science");
-        c1.setBooks(Collections.singletonList(b1));
+        c1.setBooks(Arrays.asList(b1));
 
         categoryRepo.save(c1);
 
+        System.out.println(b1);
         System.out.println(c1);
     }
 }

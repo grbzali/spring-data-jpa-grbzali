@@ -19,7 +19,7 @@ public class UserService {
         u.setName("user");
 
         Address address = new Address();
-        address.setStreet("Gazo sokak");
+        address.setStreet("Gazi sokak");
         address.setNumber("7");
         address.setCity("Istanbul");
 
