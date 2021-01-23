@@ -3,7 +3,7 @@ package com.hkarabakla.entities;
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity
+@Entity(name = "books")
 public class Book {
 
     @Id
@@ -18,7 +18,7 @@ public class Book {
     @ManyToMany(mappedBy = "authorBook", cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     private Set<Author> authors;
 
-    @ManyToMany(mappedBy = "orderBook",cascade = CascadeType.REMOVE)
+    @ManyToMany(mappedBy = "orderBooks")
     private Set<Order> orders;
 
     public String getIsbn() {

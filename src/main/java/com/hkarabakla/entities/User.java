@@ -16,7 +16,7 @@ public class User {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Set<Order> orders;
 
 
@@ -58,6 +58,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address=" + address +
+                ", orders=" + orders +
                 '}';
     }
 }

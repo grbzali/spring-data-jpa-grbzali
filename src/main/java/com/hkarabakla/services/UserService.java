@@ -27,8 +27,6 @@ public class UserService {
 
         repo.save(u);
 
-        System.out.println(u.getId());
-
         System.out.println(repo.findAllByNameContainingIgnoreCase("se"));
     }
 }
