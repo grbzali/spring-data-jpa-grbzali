@@ -15,7 +15,15 @@ public class Book {
 
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    private String description;
+
+    public double price;
+
+    public String currency;
+
+    public String imageUrl;
+
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
@@ -24,6 +32,7 @@ public class Book {
 
     @ManyToMany(mappedBy = "orderBooks")
     private List<Order> orders;
+
 
     public String getIsbn() {
         return isbn;
@@ -65,11 +74,47 @@ public class Book {
         this.orders = orders;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
                 "isbn='" + isbn + '\'' +
                 ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", currency='" + currency + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", category=" + category +
                 ", authors=" + authors +
                 '}';

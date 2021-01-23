@@ -47,9 +47,8 @@ public class UserService {
 
         repo.save(u);
         repo.save(user);
+
         System.out.println(repo.findAllByNameContainingIgnoreCase("user"));
-
-
 
     }
 }

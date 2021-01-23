@@ -1,6 +1,7 @@
 package com.hkarabakla.book;
 
 import com.hkarabakla.author.Author;
+import com.hkarabakla.category.Category;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -21,8 +22,15 @@ public class BookService {
 
         Author author = new Author();
         author.setName("Ali");
-
         book.setAuthors(Arrays.asList(author));
+
+        Category category = new Category();
+        category.setName("Computer");
+        book.setCategory(category);
+
+        book.setPrice(10);
+        book.setDescription("Java Tutorial");
+        book.setImageUrl("image path");
 
         bookRepo.save(book);
 
