@@ -17,6 +17,8 @@ public class UserService {
 
     public void userNameSearch() {
         User u = new User();
+        User user = new User();
+        user.setName("user1");
         u.setName("user");
 
 
@@ -25,6 +27,11 @@ public class UserService {
         address.setNumber("7");
         address.setCity("Istanbul");
 
+        Address address1 = new Address();
+        address1.setStreet("Vatan Cad.");
+        address1.setNumber("11");
+        address1.setCity("Kahramanmaraş");
+        user.setAddress(address1);
         u.setAddress(address);
 
         Order order = new Order();
@@ -33,10 +40,16 @@ public class UserService {
         Order order1 = new Order();
         order1.setTotal(15.0);
 
-        u.setOrders(Arrays.asList(order,order1));
+        Order order2 = new Order();
+        order2.setTotal(17.0);
+        u.setOrders(Arrays.asList(order, order1));
+        user.setOrders(Arrays.asList(order2));
 
         repo.save(u);
+        repo.save(user);
+        System.out.println(repo.findAllByNameContainingIgnoreCase("user"));
 
-        System.out.println(repo.findAllByNameContainingIgnoreCase("se"));
+
+
     }
 }
