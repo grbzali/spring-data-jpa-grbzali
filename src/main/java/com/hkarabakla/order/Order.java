@@ -1,7 +1,10 @@
-package com.hkarabakla.entities;
+package com.hkarabakla.order;
+
+import com.hkarabakla.book.Book;
+import com.hkarabakla.user.User;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity(name = "orders")
 public class Order {
@@ -12,16 +15,16 @@ public class Order {
 
     private double total;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(
             name = "order_books",
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "book_isbn"))
-    private Set<Book> orderBooks;
+    private List<Book> orderBooks;
 
     public int getId() {
         return id;
@@ -47,11 +50,11 @@ public class Order {
         this.user = user;
     }
 
-    public Set<Book> getOrderBooks() {
+    public List<Book> getOrderBooks() {
         return orderBooks;
     }
 
-    public void setOrderBook(Set<Book> orderBooks) {
+    public void setOrderBook(List<Book> orderBooks) {
         this.orderBooks = orderBooks;
     }
 
@@ -60,7 +63,6 @@ public class Order {
         return "Order{" +
                 "id=" + id +
                 ", total=" + total +
-                ", user=" + user +
                 ", orderBooks=" + orderBooks +
                 '}';
     }

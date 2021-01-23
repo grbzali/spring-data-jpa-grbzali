@@ -1,4 +1,6 @@
-package com.hkarabakla.entities;
+package com.hkarabakla.adress;
+
+import com.hkarabakla.user.User;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

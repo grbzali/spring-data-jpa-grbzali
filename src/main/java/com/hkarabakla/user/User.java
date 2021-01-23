@@ -1,7 +1,10 @@
-package com.hkarabakla.entities;
+package com.hkarabakla.user;
+
+import com.hkarabakla.adress.Address;
+import com.hkarabakla.order.Order;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 public class User {
@@ -17,7 +20,7 @@ public class User {
     private Address address;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private Set<Order> orders;
+    private List<Order> orders;
 
 
     public int getId() {
@@ -44,11 +47,11 @@ public class User {
         this.address = address;
     }
 
-    public Set<Order> getOrders() {
+    public List<Order> getOrders() {
         return orders;
     }
 
-    public void setOrders(Set<Order> orders) {
+    public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
 

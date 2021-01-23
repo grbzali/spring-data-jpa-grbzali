@@ -1,7 +1,11 @@
-package com.hkarabakla.entities;
+package com.hkarabakla.book;
+
+import com.hkarabakla.author.Author;
+import com.hkarabakla.category.Category;
+import com.hkarabakla.order.Order;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity(name = "books")
 public class Book {
@@ -16,10 +20,10 @@ public class Book {
     private Category category;
 
     @ManyToMany(mappedBy = "authorBook", cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
-    private Set<Author> authors;
+    private List<Author> authors;
 
     @ManyToMany(mappedBy = "orderBooks")
-    private Set<Order> orders;
+    private List<Order> orders;
 
     public String getIsbn() {
         return isbn;
@@ -45,12 +49,20 @@ public class Book {
         this.category = category;
     }
 
-    public Set<Author> getAuthors() {
+    public List<Author> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(Set<Author> authors) {
+    public void setAuthors(List<Author> authors) {
         this.authors = authors;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     @Override

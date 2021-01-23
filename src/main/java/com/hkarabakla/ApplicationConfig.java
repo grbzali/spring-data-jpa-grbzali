@@ -33,7 +33,7 @@ class ApplicationConfig {
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("com.hkarabakla.entities");
+        factory.setPackagesToScan("com.hkarabakla");
         factory.setDataSource(dataSource());
         return factory;
     }

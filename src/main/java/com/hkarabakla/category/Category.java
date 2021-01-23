@@ -1,4 +1,6 @@
-package com.hkarabakla.entities;
+package com.hkarabakla.category;
+
+import com.hkarabakla.book.Book;
 
 import javax.persistence.*;
 import java.util.List;

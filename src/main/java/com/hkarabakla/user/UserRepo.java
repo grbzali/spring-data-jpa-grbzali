@@ -1,6 +1,5 @@
-package com.hkarabakla.repositories;
+package com.hkarabakla.user;
 
-import com.hkarabakla.entities.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

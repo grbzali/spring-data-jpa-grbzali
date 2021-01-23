@@ -1,7 +1,7 @@
 package com.hkarabakla;
 
-import com.hkarabakla.services.CategoryService;
-import com.hkarabakla.services.UserService;
+import com.hkarabakla.category.CategoryService;
+import com.hkarabakla.user.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App
@@ -13,7 +13,7 @@ public class App
         appContext.refresh();
 
         UserService userService = (UserService) appContext.getBean("userService");
-        userService.userOperations();
+        userService.userNameSearch();
 
         CategoryService categoryService = (CategoryService) appContext.getBean("categoryService");
         categoryService.categoryOperations();
