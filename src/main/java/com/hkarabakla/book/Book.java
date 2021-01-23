@@ -5,6 +5,7 @@ import com.hkarabakla.category.Category;
 import com.hkarabakla.order.Order;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.util.List;
 
 @Entity(name = "books")
@@ -22,6 +23,8 @@ public class Book {
     public String currency;
 
     public String imageUrl;
+
+    public Date publishingDate;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     @JoinColumn(name = "category_id", referencedColumnName = "id")
@@ -104,6 +107,14 @@ public class Book {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Date getPublishingDate() {
+        return publishingDate;
+    }
+
+    public void setPublishingDate(Date publishingDate) {
+        this.publishingDate = publishingDate;
     }
 
     @Override
